@@ -1,0 +1,205 @@
+/* ========================= */
+/* HERO SECTION */
+/* ========================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ========================= */
+/* WRAPPER */
+/* ========================= */
+
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* ========================= */
+/* BACKGROUND */
+/* ========================= */
+
+.triangle {
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1;
+}
+
+/* ========================= */
+/* TEXT */
+/* ========================= */
+
+.hero-text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 1124px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  overflow: hidden;
+  z-index: 2;
+
+  /* soft edge fade */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* ROW */
+.text-row {
+  display: flex;
+  width: max-content;
+  opacity: 0;
+}
+
+/* TRACK */
+.text-track {
+  display: flex;
+  gap: 20px;
+  will-change: transform;
+}
+
+/* TEXT IMAGES */
+.text-track img {
+  width: 100%;
+  max-width: 1124px;
+  height: auto;
+  display: block;
+}
+
+/* ========================= */
+/* INTRO ANIMATIONS */
+/* ========================= */
+
+@keyframes intro-right {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes intro-left {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scroll-right {
+  animation: intro-right 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.scroll-left {
+  animation: intro-left 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ========================= */
+/* LOOP ANIMATIONS */
+/* ========================= */
+
+@keyframes loop-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes loop-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.scroll-right .text-track {
+  animation: loop-right 12s linear infinite;
+  animation-delay: 1.2s;
+}
+
+.scroll-left .text-track {
+  animation: loop-left 12s linear infinite;
+  animation-delay: 1.2s;
+}
+
+/* ========================= */
+/* PERSON */
+/* ========================= */
+
+.hero-person {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 35%;
+  max-width: 400px;
+  height: auto;
+
+  z-index: 3;
+  opacity: 0;
+
+  animation: person-fade-in 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes person-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 1024px) {
+  .hero-text {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-person {
+    width: 45%;
+    max-width: 520px;
+  }
+}

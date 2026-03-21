@@ -1,0 +1,138 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
+}
+
+/* Section Wrapper */
+.nav-section {
+  width: 100%;
+}
+
+/* Navbar Container */
+.navbar {
+  width: 100%;
+  max-width: 1121px;
+  margin: 50px auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 46px;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+  color: #000;
+}
+
+/* Nav Links Container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Nav Items */
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  color: #504C46;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+/* Underline (only for normal links) */
+.nav-links a:not(.resume-btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+  background-color: #504C46;
+
+  transition: width 0.3s ease;
+}
+
+/* Hover (normal links only) */
+.nav-links a:not(.resume-btn):hover {
+  opacity: 0.8;
+}
+
+/* Animate underline */
+.nav-links a:not(.resume-btn):hover::after {
+  width: 100%;
+}
+
+/* Resume Button */
+.resume-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  background: linear-gradient(
+    to right,
+    #E7E3D6 0%,
+    #D7D3BF 100%
+  );
+
+  color: #504C46;
+  font-weight: 400;
+
+  display: inline-block;
+
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Inner content animation */
+.resume-btn span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+/* Hover → only text zooms out smoothly */
+.resume-btn:hover span {
+  transform: scale(0.9);
+}
+
+/* Click → invert colors */
+.resume-btn:active {
+  background: #504C46;
+  color: #ffffff;
+}
+
+/* ========================= */
+/* 📱 TABLET RESPONSIVENESS */
+/* ========================= */
+@media (max-width: 1024px) {
+
+  .navbar {
+    max-width: 704px; /* matches your Figma */
+  }
+
+  .nav-links {
+    gap: 40px; /* UPDATED */
+  }
+
+  .nav-links a {
+    font-size: 15px; /* UPDATED */
+  }
+
+  .logo {
+    font-size: 40px; /* slight scale for balance */
+  }
+}

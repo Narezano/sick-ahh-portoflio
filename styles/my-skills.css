@@ -1,0 +1,253 @@
+/* ========================= */
+/* MY SKILLS SECTION */
+/* ========================= */
+
+.skills-section {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.skills-container {
+  width: 100%;
+  max-width: 1124px;
+  margin: 95px auto 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========================= */
+/* TITLE */
+/* ========================= */
+
+.skills-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  color: #504C46;
+}
+
+/* ========================= */
+/* DESCRIPTION */
+/* ========================= */
+
+.skills-description {
+  max-width: 1000px;
+  text-align: center;
+
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 25px;
+  color: #827866;
+
+  margin-top: 20px;
+}
+
+/* ========================= */
+/* CAROUSEL */
+/* ========================= */
+
+.skills-carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  margin-top: 57px;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* ========================= */
+/* TRACK */
+/* ========================= */
+
+.skills-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  will-change: transform;
+  cursor: grab;
+}
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+
+.skill-card {
+  width: 160px;
+  height: 183px;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(207, 199, 173, 0.75) 0%,
+    rgba(210, 202, 178, 0.75) 49%,
+    rgba(215, 209, 187, 0.75) 62%,
+    rgba(220, 215, 196, 0.75) 75%,
+    rgba(255, 255, 255, 0.75) 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+  transform-style: preserve-3d;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* ========================= */
+/* CARD CONTENT */
+/* ========================= */
+
+.skill-card h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #504C46;
+}
+
+.skill-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+
+  transition: transform 0.3s ease;
+}
+
+.skill-card p {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 10px;
+  text-align: center;
+  color: #504C46;
+}
+
+.skill-card p span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ========================= */
+/* HOVER EFFECTS */
+/* ========================= */
+
+.skill-card:hover {
+  transform:
+    translateY(-8px)
+    scale(1.04)
+    rotateX(3deg)
+    rotateY(-3deg);
+
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+  filter: brightness(1.05);
+}
+
+.skill-card:hover img {
+  transform: scale(1.12);
+}
+
+/* GLOW */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: 10px;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(207, 199, 173, 0.4),
+    transparent 70%
+  );
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+/* ========================= */
+/* TABLET (≤1024px) */
+/* ========================= */
+
+@media (max-width: 1024px) {
+
+  /* 🔥 MATCH YOUR DESIGN WIDTH */
+  .skills-container {
+    max-width: 704px;
+    padding: 0;
+  }
+
+  /* 🔥 TYPOGRAPHY UPDATE */
+  .skills-title {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .skills-description {
+    font-size: 25px;
+  }
+
+  .skills-track {
+    justify-content: flex-start;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+  }
+
+  .skill-card {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  .skills-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .skills-track {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .skills-title {
+    font-size: 28px;
+  }
+
+  .skills-description {
+    font-size: 18px;
+  }
+
+  .skill-card {
+    width: 150px;
+    height: 175px;
+  }
+}
